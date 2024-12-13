@@ -11,14 +11,14 @@ Gem::Specification.new do |s|
   s.require_paths   = %w(lib)
   s.license         = %q{MIT}
 
-  s.files           = `git ls-files`.split("\n")
-  s.test_files      = `git ls-files -- spec/*`.split("\n")
+  s.files             = Dir.glob("{lib,test}/**/*") + Dir.glob("*.{rdoc,md,txt}")
+  s.test_files        = Dir.glob("test/**/*")
 
-  s.add_dependency  'refinerycms-core',     '~> 4.0'
+  s.add_dependency  'refinerycms-core'
   s.add_dependency  'mobility'
-  s.add_dependency  'refinerycms-settings', '~> 4.0'
-  s.add_dependency  'filters_spam',         '~> 0.2'
-  s.add_dependency  'actionmailer',        ['>= 5.1.0', '< 5.3']
+  s.add_dependency  'refinerycms-settings'
+  s.add_dependency  'filters_spam'
+  s.add_dependency  'actionmailer'
   s.add_dependency  'httpclient'
 
   s.cert_chain      = [File.expand_path("../certs/parndt.pem", __FILE__)]
